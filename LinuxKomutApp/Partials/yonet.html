@@ -1,0 +1,101 @@
+﻿<div>
+
+    
+        <div class="progress" ng-show="isHttpBusy">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                Lütfen Bekleyin
+            </div>
+        </div>
+        
+        
+    <h1>{{message}}</h1>
+
+    <div id="ekleblogu" class="row">
+        <div class="col-lg-4">
+            <form ng-submit="addNew()">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Komut Adı :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" required ng-model="newkomut.KomutAdi" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        Aciklama :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" required ng-model="newkomut.Aciklama" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        Referans :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" ng-model="newkomut.Referans" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                        <input type="submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <input type="button" ng-click="hepsiniGor()" value="Komutları Göster" />
+    <br />
+    <input type="button" ng-click="toggleIsUpdating()" value="Guncelle" />
+    <div id="guncelleblogu" class="row" ng-show="isUpdating">
+
+        <div class="col-lg-4">
+            <div ng-repeat="k in butunkomutlar">
+                <div class="row" ng-show="false">
+                    <input type="text" value="{{k.Id}}" ng-model="k.Id">
+                </div>
+                <div class="row" >
+                    <div class="col-lg-6">
+                        Adi :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" required ng-model="k.KomutAdi"  />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        Aciklama :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" required  ng-model="k.Aciklama" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        Referans :
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text"  ng-model="k.Referans" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="button" value="Guncelle" ng-click="updateKomut(k)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gostermeblogu">
+        <div ng-repeat="k in butunkomutlar">
+            {{k.Id}}
+        </div>
+    </div>
+</div>

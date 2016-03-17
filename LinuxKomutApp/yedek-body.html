@@ -1,0 +1,12 @@
+﻿<h1>{{msg}}</h1>
+<button ng-click="getKomut()">Gönder</button><br />
+<!--<button ng-click="postKomut()">Ekle</button>-->
+<form ng-submit="postKomut()">
+    Komut Adı : <input type="text" ng-model="newkomut.KomutAdi" /><br />
+    Acıklama : <input type="text" ng-model="newkomut.Aciklama" /><br />
+    Referans : <input type="text" ng-model="newkomut.Referans" /><br />
+    <input type="submit" value="Ekle" />
+</form>
+<div ng-repeat="d in data">
+    {{d.KomutAdi}}
+</div>

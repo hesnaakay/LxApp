@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="linuxdbModelStoreContainer" CdmEntityContainer="lxEntities">
+    <EntitySetMapping Name="Komut">
+      <EntityTypeMapping TypeName="linuxdbModel.Komut">
+        <MappingFragment StoreEntitySet="Komut">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KomutAdi" ColumnName="KomutAdi" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Referans" ColumnName="Referans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

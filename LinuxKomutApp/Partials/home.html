@@ -1,0 +1,26 @@
+﻿<div>
+    <div class="progress" ng-show="isHttpBusy">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+            Lütfen Bekleyin
+        </div>
+    </div>
+
+    <h1>{{message}}</h1>
+
+    <a href="#/yonet">Yönetici</a>
+
+    <div class="row" ng-repeat="k in butunkomutlar">
+        <div class="col-lg-3">
+            {{k.Id}}
+        </div>
+        <div class="col-lg-3">
+            {{k.KomutAdi}}
+        </div>
+        <div class="col-lg-3">
+            {{k.Aciklama}}
+        </div>
+        <div class="col-lg-3">
+            {{k.Referans}}
+        </div>
+    </div>
+</div>
