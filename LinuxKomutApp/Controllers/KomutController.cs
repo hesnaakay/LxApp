@@ -15,6 +15,8 @@ namespace LinuxKomutApp.Controllers
         lxEntities db = new lxEntities();
         GenelRepository repo = new GenelRepository();
         // bütün komutları döndür
+
+        [Authorize]
         [Route("hepsi")]
         [HttpGet]
         public IHttpActionResult GetKomuts()

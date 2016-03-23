@@ -121,19 +121,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="app\controllers\homeController.js" />
-    <Content Include="app\controllers\indexController.js" />
-    <Content Include="app\controllers\loginController.js" />
-    <Content Include="app\controllers\ordersController.js" />
-    <Content Include="app\controllers\signupController.js" />
-    <Content Include="app\services\authInterceptorService.js" />
-    <Content Include="app\services\authService.js" />
-    <Content Include="app\services\orderService.js" />
-    <Content Include="app\views\home.html" />
-    <Content Include="app\views\login.html" />
-    <Content Include="app\views\orders.html" />
-    <Content Include="app\views\signup.html" />
+    <Content Include="auth-app\app.js" />
+    <Content Include="auth-app\controllers\homeController.js" />
+    <Content Include="auth-app\controllers\indexController.js" />
+    <Content Include="auth-app\controllers\loginController.js" />
+    <Content Include="auth-app\controllers\ordersController.js" />
+    <Content Include="auth-app\controllers\signupController.js" />
+    <Content Include="auth-app\services\authInterceptorService.js" />
+    <Content Include="auth-app\services\authService.js" />
+    <Content Include="auth-app\services\orderService.js" />
+    <Content Include="auth-app\views\home.html" />
+    <Content Include="auth-app\views\login.html" />
+    <Content Include="auth-app\views\orders.html" />
+    <Content Include="auth-app\views\signup.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -142,9 +142,16 @@
     <Content Include="deneme.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
+    <Content Include="ng-app\auth.js" />
+    <Content Include="ng-app\indexController.js" />
+    <Content Include="ng-app\interceptor.js" />
+    <Content Include="ng-app\loginController.js" />
+    <Content Include="ng-app\signup.js" />
     <Content Include="Partials\home.html" />
+    <Content Include="Partials\login.html" />
+    <Content Include="Partials\signup.html" />
     <Content Include="Partials\yonet.html" />
-    <Content Include="Scripts\angular-app.js" />
+    <Content Include="ng-app\angular-app.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />

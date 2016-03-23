@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute','LocalStorageModule', 'angular-loading-bar']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -11,10 +11,30 @@ app.config(function ($routeProvider) {
         .when("/yonet", {
             templateUrl: "Partials/yonet.html",
             controller: "yonetController"
-        }).otherwise({ redirectTo: "/home" });
+        });
+
+    $routeProvider.when("/login", {
+        controller: "loginController",
+        templateUrl: "Partials/login.html"
+    });
+
+    $routeProvider.when("/signup", {
+        controller: "signupController",
+        templateUrl: "Partials/signup.html"
+    });
+
+    $routeProvider.otherwise({ redirectTo: "/home" });
 
 
 });
+
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
+
+app.run(['authService', function (authService) {
+    authService.fillAuthData();
+}]);
 
 var yonetController = function ($scope, $http) {
     $scope.message = "Yönetici Sayfası";
@@ -52,6 +72,15 @@ var yonetController = function ($scope, $http) {
         });
     }
 
+    $http.get("/api/komut/hepsi").then(function (response) {
+        $scope.isHttpBusy = false;
+        $scope.butunkomutlar = response.data;
+    },
+        function (reason) {
+            $scope.isHttpBusy = false;
+            console.log("Giriş Yapın");
+        });
+
     $scope.toggleIsUpdating = function () {
         $scope.isUpdating = !$scope.isUpdating;
     }
@@ -73,14 +102,16 @@ var yonetController = function ($scope, $http) {
         $http.put("/api/komut/guncelle",k).then(onUpdateOk, onUpdateError);
     };
 
-    $http.get("/api/komut/hepsi").then(function (response) {
-        $scope.isHttpBusy = false;
-        $scope.butunkomutlar = response.data;
-    },
-       function (reason) {
-           $scope.isHttpBusy = false;
-           alert("bütün komutlar alrınırken bit hata oluştu!");
-       });
+    //$http.get("/api/komut/hepsi").then(function (response) {
+    //    $scope.isHttpBusy = false;
+    //    debugger;
+    //    $scope.butunkomutlar = response.data;
+        
+    //},
+    //   function (reason) {
+    //       $scope.isHttpBusy = false;
+    //       alert("bütün komutlar alrınırken bit hata oluştu!");
+    //   });
 };
 
 var mainController = function ($scope, $http) {
@@ -144,10 +175,12 @@ var mainController = function ($scope, $http) {
         alert("Komutların hepsi getirilirken hata oluştu!");
     }
 
-    $http.get("/api/komut/hepsi").then(onHepsiOk, onHepsiError);
+   // $http.get("/api/komut/hepsi").then(onHepsiOk, onHepsiError);
     // bütün komutları getirir
     //$http.get('/api/komut/hesna').then(istekBasarili, onError);
 };
+
+
 
 app.controller('mainController', mainController);
 app.controller('yonetController', yonetController);

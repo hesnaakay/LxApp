@@ -49,19 +49,21 @@
     <input type="button" ng-click="hepsiniGor()" value="Komutları Göster" />
     <br />
     <input type="button" ng-click="toggleIsUpdating()" value="Guncelle" />
-    <div id="guncelleblogu" class="row" ng-show="isUpdating">
+    
+    <div id="guncelleme" class="row" ng-show="isUpdating">
+        
+
+       
 
         <div class="col-lg-4">
             <div ng-repeat="k in butunkomutlar">
-                <div class="row" ng-show="false">
-                    <input type="text" value="{{k.Id}}" ng-model="k.Id">
-                </div>
+                
                 <div class="row" >
                     <div class="col-lg-6">
                         Adi :
                     </div>
                     <div class="col-lg-6">
-                        <input type="text" required ng-model="k.KomutAdi"  />
+                        <input type="text" required  ng-model="k.komutAdi"  />
                     </div>
                 </div>
 
@@ -70,7 +72,7 @@
                         Aciklama :
                     </div>
                     <div class="col-lg-6">
-                        <input type="text" required  ng-model="k.Aciklama" />
+                        <input type="text" required ng-model="k.aciklama" />
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +80,7 @@
                         Referans :
                     </div>
                     <div class="col-lg-6">
-                        <input type="text"  ng-model="k.Referans" />
+                        <input type="text" required ng-model="k.referans" />
                     </div>
                 </div>
                 <div class="row">
@@ -93,9 +95,24 @@
         </div>
     </div>
 
-    <div id="gostermeblogu">
-        <div ng-repeat="k in butunkomutlar">
-            {{k.Id}}
+    <div id="gostermeblogu" class="row">
+        <div class="col-lg-4">
+            <div ng-repeat="k in butunkomutlar">
+                <div class="row">
+                    <div class="col-lg-6">Komut Adı :</div>
+                    <div class="col-lg-6">{{k.komutAdi}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">Açıklama :</div>
+                    <div class="col-lg-6">{{k.aciklama}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">Referans</div>
+                    <div class="col-lg-6">{{k.referans}}</div>
+                </div>
+                <br />
+            </div>
         </div>
+        
     </div>
 </div>
